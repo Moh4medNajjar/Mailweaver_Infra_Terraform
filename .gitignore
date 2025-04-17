@@ -1,27 +1,20 @@
-# === TERRAFORM BUILD DIR ===
 .terraform/
 
-# === TERRAFORM STATE FILES (can contain secrets!) ===
 *.tfstate
 *.tfstate.*
 
-# === BACKUPS & LOCK FILES ===
 *.backup
 .terraform.lock.hcl
 
-# === CRASH LOGS ===
 crash.log
 *.log
 
-# === PLAN FILES ===
 *.tfplan
 
-# === IDE/Editor files (bonus points for clean dev life) ===
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# === OS-specific garbage ===
 .DS_Store
 Thumbs.db
