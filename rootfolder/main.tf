@@ -20,7 +20,6 @@ module "private_subnet_1" {
   subnet_name       = "Mailweaver_private_subnet_1"
 }
 module "private_subnet_2" {
-
   source            = "../modules/subnet"
   vpc_id            = module.Mailweaver_VPC.vpc_id
   isPublic          = false
@@ -66,8 +65,6 @@ module "mailweaver_VPC_private_route_table" {
   nat_gw_id = module.mailweaver_nat_gateway.aws_nat_gateway_id
 }
 
-//Route table associations: 
-
 module "public_subnet_public_route_table_association" {
   source         = "../modules/route-table-association"
   subnet_id      = module.public_subnet.subnet_id
@@ -89,5 +86,11 @@ module "private_subnet_3_private_route_table_association" {
   route_table_id = module.mailweaver_VPC_private_route_table.aws_private_route_table_id
 }
 
+//-------------------------ECR------------------------------------------------------
+
+module "mailweaver_ecr_repo" {
+  source        = "../modules/ecr"
+  ecr_repo_name = "mailweaver_ecr_repo"
+}
 
 
